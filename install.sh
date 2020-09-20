@@ -57,13 +57,13 @@ if [[ $distrib_name == "ubuntu" || $distrib_name == "LinuxMint" || $distrib_name
     do_with_root apt-get -y --force-yes update
 
     # Install prerequirements
-    do_with_root apt-get install -y --force-yes python-pip python-dev gcc lm-sensors wireless-tools
+    do_with_root apt-get install -y --force-yes python3-pip python-dev gcc lm-sensors wireless-tools
 
 elif [[ $distrib_name == "redhat" ||  $distrib_name == "RedHatEnterpriseServer" || $distrib_name == "centos" || $distrib_name == "fedora" || $distrib_name == "Scientific" ]]; then
     # Redhat/CentOS/Fedora/SL
 
     # Install prerequirements
-    do_with_root yum -y install python-pip python-devel gcc lm_sensors wireless-tools
+    do_with_root yum -y install python3-pip python-devel gcc lm_sensors wireless-tools
 
 elif [[ $distrib_name == "oracle" ]]; then
     # Oracle EL 7, should work on 6 as well
@@ -73,7 +73,7 @@ elif [[ $distrib_name == "oracle" ]]; then
     do_with_root yum-config-manager --enablerepo ol`. /etc/os-release; echo $VERSION | cut -d. -f1`_software_collections
 
     # Install prerequirements
-    do_with_root yum -y install python27-python-pip python27-python-devel gcc lm_sensors wireless-tools
+    do_with_root yum -y install python27-python3-pip python27-python-devel gcc lm_sensors wireless-tools
 
     # Create glances script
     GLANCES_BIN=/usr/bin/glances
